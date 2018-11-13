@@ -13,14 +13,14 @@ ms.locfileid: "42993560"
 ---
 # <a name="asynchronous-queries"></a>异步查询
 
-当在数据库中执行查询时，异步查询可避免阻塞线程。 这有助于避免冻结胖客户端应用程序的 UI。 异步操作还可以增加 Web 应用程序的吞吐量，可以释放线程以在数据库操作完成前去处理其他请求。 有关详细信息，请参阅[使用 C# 异步编程](https://docs.microsoft.com/dotnet/csharp/async)。
+当在数据库中执行查询时，异步查询可避免阻止线程。 这有助于避免冻结胖客户端应用程序的 UI。 异步操作还可以增加 Web 应用程序的吞吐量，可以释放线程以在数据库操作完成前去处理其他请求。 有关详细信息，请参阅[使用 C# 异步编程](https://docs.microsoft.com/dotnet/csharp/async)。
 
 > [!WARNING]  
 > EF Core 不支持在同一上下文实例上运行多个并行操作。 应始终等待操作完成，然后再开始下一个操作。 这通常是通过在每个异步操作上使用 `await` 关键字完成的。
 
-Entity Framework Core 提供了一组异步扩展方法，可用作执行查询并返回结果的 LINQ 方法的可选替代方法。 示例包括 `ToListAsync()`、`ToArrayAsync()`、`SingleAsync()` 等。对于部分 LINQ 操作（如 `Where(...)`、`OrderBy(...)` 等），没有对应的异步版本，因为这些方法仅用于构建 LINQ 表达式树，而未将查询发送到数据库中执行。
+Entity Framework Core 提供了一组异步扩展方法，可用作执行查询并返回结果的 LINQ 方法的替代方法。 示例包括 `ToListAsync()`、`ToArrayAsync()`、`SingleAsync()` 等。对于部分 LINQ 运算符（如 `Where(...)`、`OrderBy(...)` 等），没有对应的异步版本，因为这些方法仅用于构建 LINQ 表达式树，而未将查询发送到数据库中执行。
 
 > [!IMPORTANT]  
-> 在 `Microsoft.EntityFrameworkCore` 命名空间中定义了 EF Core 异步扩展方法。 必须引入此命名空间才能使用这些方法。
+> 在 `Microsoft.EntityFrameworkCore` 命名空间中定义 EF Core 异步扩展方法。 必须导入此命名空间才能使这些方法可用。
 
 [!code-csharp[Main](../../../samples/core/Querying/Querying/Async/Sample.cs#Sample)]
