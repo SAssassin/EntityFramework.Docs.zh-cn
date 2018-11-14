@@ -13,18 +13,18 @@ ms.locfileid: "42995492"
 ---
 # <a name="required-and-optional-properties"></a>必需和可选属性
 
-属性被认为是如果它才能包含有效`null`。 如果`null`不是有效的值分配给属性中，则它被视为是必需的属性。
+如果属性的有效赋值中包含`null`，则认为该属性是可选属性。 如果有效赋值不包含`null`，则该属性被视为是必需属性。
 
 ## <a name="conventions"></a>约定
 
-按照约定，其 CLR 类型可以包含 null 的属性将配置为可选 (`string`， `int?`， `byte[]`，等等。)。 将配置的属性的 CLR 类型不能包含 null 所需的方式 (`int`， `decimal`， `bool`，等等。)。
+按照约定，其 CLR 类型可以包含 null 的属性将配置为可选属性 (`string`， `int?`， `byte[]`，等等。)。 CLR 类型不能包含 null 的属性将配置为必需属性 (`int`， `decimal`， `bool`，等等。)。
 
 > [!NOTE]  
-> 其 CLR 类型不能包含 null 的属性不能配置为可选。 始终将所需的实体框架视为属性。
+> 不能将 CLR 类型不能包含 null 的属性配置为可选属性。实体框架始终认为该属性是必需属性。
 
 ## <a name="data-annotations"></a>数据注释
 
-可以使用数据批注以指示属性是必需。
+可以使用数据注释来指示属性是必需属性。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/DataAnnotations/Samples/Required.cs?highlight=4)] -->
 ``` csharp
@@ -38,7 +38,7 @@ public class Blog
 
 ## <a name="fluent-api"></a>Fluent API
 
-可以使用 Fluent API 以指示属性是必需。
+可以使用 Fluent API 来指示属性是必需属性。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/Required.cs?highlight=7,8,9)] -->
 ``` csharp
