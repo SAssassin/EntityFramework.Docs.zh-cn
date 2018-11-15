@@ -32,9 +32,9 @@
 ##### [UWP - 新数据库](core/get-started/uwp/getting-started.md)
 
 ### [创建模型](core/modeling/index.md)
-#### [包含类型和排除类型](core/modeling/included-types.md)
-#### [包含属性和排除属性](core/modeling/included-properties.md)
-#### [键（主要）](core/modeling/keys.md)
+#### [包括类型和排除类型](core/modeling/included-types.md)
+#### [包括属性和排除属性](core/modeling/included-properties.md)
+#### [键（主键）](core/modeling/keys.md)
 #### [生成的值](core/modeling/generated-properties.md)
 #### [必需/可选属性](core/modeling/required-optional.md)
 #### [最大长度](core/modeling/max-length.md)

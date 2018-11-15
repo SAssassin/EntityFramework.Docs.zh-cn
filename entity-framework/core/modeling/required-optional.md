@@ -1,5 +1,5 @@
 ---
-title: 必需/可选属性-EF Core
+title: 必需/可选属性 - EF Core
 author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: ddaa0a54-9f43-4c34-aae3-f95c96c69842
@@ -13,14 +13,14 @@ ms.locfileid: "42995492"
 ---
 # <a name="required-and-optional-properties"></a>必需和可选属性
 
-如果属性的有效赋值中包含`null`，则认为该属性是可选属性。 如果有效赋值不包含`null`，则该属性被视为是必需属性。
+如果属性值可以为 `null` ，则认为该属性是可选属性。 如果属性值不可以为 `null` ，则该属性是必需属性。
 
 ## <a name="conventions"></a>约定
 
-按照约定，其 CLR 类型可以包含 null 的属性将配置为可选属性 (`string`， `int?`， `byte[]`，等等。)。 CLR 类型不能包含 null 的属性将配置为必需属性 (`int`， `decimal`， `bool`，等等。)。
+按照约定， CLR 类型可以包含 null 的属性将配置为可选属性 (`string`， `int?`， `byte[]`，等等。)。 CLR 类型不能包含 null 的属性将配置为必需属性 (`int`， `decimal`， `bool`，等等。)。
 
 > [!NOTE]  
-> 不能将 CLR 类型不能包含 null 的属性配置为可选属性。实体框架始终认为该属性是必需属性。
+>  CLR 类型不能包含 null 的属性不能被配置为可选属性。实体框架始终认为该属性是必需属性。
 
 ## <a name="data-annotations"></a>数据注释
 

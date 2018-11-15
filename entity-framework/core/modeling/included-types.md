@@ -1,5 +1,5 @@
 ---
-title: 包括和排除类型的 EF Core
+title: 包括类型和排除类型 - EF Core
 author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: cbe6935e-2679-4b77-8914-a8d772240cf1
@@ -11,17 +11,17 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "42996145"
 ---
-# <a name="including--excluding-types"></a>包括和排除类型
+# <a name="including--excluding-types"></a>包括类型和排除类型
 
 将类型包括到模型中意味着，EF 会有该类型的元数据，并且会尝试从数据库读取实例，以及将实例写入到数据库中。
 
 ## <a name="conventions"></a>约定
 
-按照约定，在上下文的 `DbSet` 属性中公开的类型会包括在模型中。 此外，在 `OnModelCreating` 方法中提及的类型也会包括模型中。 最后，通过类型的导航属性,以递归方式找到的任何类型也会包括在模型中。
+按照约定，通过上下文的 `DbSet` 属性公开的类型会包括在模型中。 此外，在 `OnModelCreating` 方法中提及的类型也会包括模型中。 最后，通过类型的导航属性,以递归方式找到的任何类型也会包括在模型中。
 
 **例如，以下代码列表中发现所有三种类型：**
 
-* `Blog`，因为它是在上下文的 `DbSet` 属性中公开的
+* `Blog`，因为它是通过上下文的 `DbSet` 属性公开的
 
 * `Post`，因为它是通过 `Blog.Posts` 导航属性发现的
 
