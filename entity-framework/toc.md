@@ -39,7 +39,7 @@
 #### [必需/可选属性](core/modeling/required-optional.md)
 #### [最大长度](core/modeling/max-length.md)
 #### [并发令牌](core/modeling/concurrency.md)
-#### [阴影属性](core/modeling/shadow-properties.md)
+#### [隐藏属性](core/modeling/shadow-properties.md)
 #### [关系](core/modeling/relationships.md)
 #### [索引](core/modeling/indexes.md)
 #### [备用键](core/modeling/alternate-keys.md)
