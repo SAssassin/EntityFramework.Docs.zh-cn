@@ -11,7 +11,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "42994739"
 ---
-# <a name="saving-related-data"></a>保存关联数据
+# <a name="saving-related-data"></a>保存相关数据
 
 除了独立实体以外，还可以使用模型中定义的关系。
 
@@ -20,20 +20,20 @@ ms.locfileid: "42994739"
 
 ## <a name="adding-a-graph-of-new-entities"></a>添加新实体的关系图
 
-如果创建多个互相关联的新实体，则将其中一个添加到上下文时也会添加其他实体。
+如果创建多个新的相关实体，则将其中一个添加到上下文时也会添加其他实体。
 
-在下面的示例中，博客及其三个关联文章会全部插入到数据库中。 这些文章可以被发现并添加，是因为它们可以通过 `Blog.Posts` 导航属性访问。
+在下面的示例中，博客和三篇相关文章将全部被插入数据库中。由于可通过 `Blog.Posts` 导航属性访问这些文章，因此可发现并添加它们。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/RelatedData/Sample.cs#AddingGraphOfEntities)]
 
 > [!TIP]  
-> 可以使用 EntityEntry.State 属性来设置单个实体的状态。 例如 `context.Entry(blog).State = EntityState.Modified`。
+> 使用 EntityEntry.State 属性仅设置单个实体的状态。 例如 `context.Entry(blog).State = EntityState.Modified`。
 
-## <a name="adding-a-related-entity"></a>添加关联实体
+## <a name="adding-a-related-entity"></a>添加相关实体
 
 如果从已由上下文跟踪的实体的导航属性中引用新实体，则将发现该实体并将其插入到数据库中。
 
-在下面的示例中， `blog` 实体来自于数据库（已被跟踪）， `post` 实体通过其 `Posts` 导航属性添加， 所以 `post` 实体会被插入到数据库中。
+在下面的示例中，插入 `post` 实体，因为该实体会添加到已从数据库中提取的 `blog` 实体的 `Posts` 属性。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/RelatedData/Sample.cs#AddingRelatedEntity)]
 
@@ -47,16 +47,16 @@ ms.locfileid: "42994739"
 
 ## <a name="removing-relationships"></a>删除关系
 
-可以通过将引用导航设置为 `null` 或从集合导航中删除关联的实体来删除关系。
+可以通过将引用导航设置为 `null` 或从集合导航中删除相关实体来删除关系。
 
 根据关系中配置的级联删除行为，删除关系可能会对依赖实体产生副作用。
 
-默认情况下，对于必选关系，将配置级联删除行为，会从数据库中删除子实体/依赖实体。 对于可选关系，默认情况下不会配置级联删除，但会将外键属性设置为 null。
+默认情况下，对于必选关系，将配置级联删除行为，并将从数据库中删除子实体/依赖实体。 对于可选关系，默认情况下不会配置级联删除，但会将外键属性设置为 null。
 
 要了解有关如何配置关系必要性的信息，请参阅[必选关系和可选关系](../modeling/relationships.md#required-and-optional-relationships)。
 
 有关级联删除行为的工作原理、如何显式配置这些行为以及如何按照约定选择这些行为的详细信息，请参阅[级联删除](cascade-delete.md)。
 
-在下面的示例中， `Blog` 和 `Post` 之间的关系上配置了级联删除，所以 `post` 实体会被从数据库中删除。
+在下面的示例中，对 `Blog` 和 `Post` 之间的关系配置了级联删除，因此将从数据库中删除 `post` 实体。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/RelatedData/Sample.cs#RemovingRelationships)]
