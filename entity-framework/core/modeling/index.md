@@ -13,7 +13,7 @@ ms.locfileid: "45489266"
 ---
 # <a name="creating-and-configuring-a-model"></a>创建并配置模型
 
-Entity Framework 使用一组基于实体类类型的约定来构建模型。 你可以指定其他配置来补充或重写约定的内容。
+Entity Framework 使用一组基于实体类类型的约定来构建模型。 你可以指定其他配置来补充或覆盖约定的内容。
 
 本文包含的配置可应用于面向数据存储的模型的配置，以及面向关系数据库的配置。 数据库提供程序也支持特定的数据存储的配置。 有关数据库提供程序特定配置的文档，请参阅[数据库提供程序](../providers/index.md)部分。
 
@@ -22,7 +22,7 @@ Entity Framework 使用一组基于实体类类型的约定来构建模型。 �
 
 ## <a name="use-fluent-api-to-configure-a-model"></a>使用 fluent API 配置模型
 
-可在派生上下文中重写 `OnModelCreating` 方法，并使用 `ModelBuilder API` 来配置模型。 此配置方法最为有效，并可在不修改实体类的情况下指定配置。 Fluent API 配置具有最高优先级，并将重写约定和数据注解。
+可在派生上下文中重写 `OnModelCreating` 方法，并使用 `ModelBuilder API` 来配置模型。 此配置方法最为有效，并可在不修改实体类的情况下指定配置。 Fluent API 配置具有最高优先级，可覆盖约定和数据注解。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/Required.cs?range=5-15&highlight=5-10)] -->
 
@@ -42,7 +42,7 @@ Entity Framework 使用一组基于实体类类型的约定来构建模型。 �
 
 ## <a name="use-data-annotations-to-configure-a-model"></a>使用数据注解来配置模型
 
-也可将特性（称为数据注解）应用于类和属性。 数据注解会重写约定，但会被 Fluent API 配置重写。
+也可将特性（称为数据注解）应用于类和属性。 数据注解会覆盖约定，但会被 Fluent API 配置覆盖。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/DataAnnotations/Samples/Required.cs?range=11-16&highlight=4)] -->
 ``` csharp
