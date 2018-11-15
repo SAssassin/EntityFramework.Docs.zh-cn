@@ -45,7 +45,7 @@ Add-Migration InitialCreate
 dotnet ef migrations add InitialCreate
 ```
 
-向“迁移”目录下的项目添加以下三个文件：
+向**Migrations**目录下的项目添加以下三个文件：
 
 * **00000000000000_InitialCreate.cs**--主迁移文件。 包含应用迁移所需的操作（在 `Up()` 中）和还原迁移所需的操作（在 `Down()` 中）。
 * **00000000000000_InitialCreate.Designer.cs**--迁移元数据文件。 包含 EF 所用的信息。
