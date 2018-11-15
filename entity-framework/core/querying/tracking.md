@@ -20,7 +20,7 @@ ms.locfileid: "42993350"
 
 ## <a name="tracking-queries"></a>跟踪查询
 
-返回实体类型的查询是默认会被跟踪的。 这表示可以修改这些实体实例，然后通过 `SaveChanges()` 持久化这些更改。
+返回实体类型的查询是默认会被跟踪的。 这表示可以更改这些实体实例，然后通过 `SaveChanges()` 持久化这些更改。
 
 在以下示例中，将检测到对博客评分所做的更改，并在 `SaveChanges()` 期间将这些更改持久化到数据库中。
 
@@ -36,7 +36,7 @@ using (var context = new BloggingContext())
 
 ## <a name="no-tracking-queries"></a>非跟踪查询
 
-当查询结果是只读的时候，非跟踪查询十分有用。 可以更快速地执行非跟踪查询，因为无需设置更改跟踪信息。
+在只读方案中使用结果时，非跟踪查询十分有用。 可以更快速地执行非跟踪查询，因为无需设置更改跟踪信息。
 
 可以将单个查询替换为非跟踪查询：
 
@@ -67,7 +67,7 @@ using (var context = new BloggingContext())
 
 ## <a name="tracking-and-projections"></a>跟踪和投影
 
-即使查询的结果类型不是实体类型，但如果结果中包含实体类型，则默认情况下也会跟踪这些实体类型。 在以下返回匿名类型的查询中，结果集中的 `Blog` 实例会被跟踪。
+即使查询的结果类型不是实体类型，但如果结果包含实体类型，则默认情况下也会跟踪这些实体类型。 在以下返回匿名类型的查询中，会跟踪结果集中 `Blog` 的实例。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/Tracking/Sample.cs?highlight=7)] -->
 ``` csharp
