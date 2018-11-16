@@ -13,11 +13,7 @@ ms.locfileid: "42997136"
 ---
 # <a name="raw-sql-queries"></a>原生 SQL 查询
 
-<<<<<<< HEAD
-通过 Entity Framework Core 可以在使用关系数据库时下降到原始 SQL 查询。 这在无法使用 LINQ 表达要执行的查询，或因使用 LINQ 查询导致低效的 SQL 被发送到数据库时非常有用。原始 SQL 查询可返回实体类型，或者，从 EF Core 2.1 开始，可返回模型中的[查询类型](xref:core/modeling/query-types)。
-=======
-通过 Entity Framework Core 可以在使用关系数据库时下降到原始 SQL 查询。 这在无法使用 LINQ 表达要执行的查询，或因使用 LINQ 查询导致低效的 SQL 被发送到数据库时非常有用。 原始 SQL 查询可返回实体类型，或者，从 EF Core 2.1 开始，可返回模型中的[查询类型](xref:core/modeling/query-types)。
->>>>>>> aspnet/live
+通过 Entity Framework Core，可以在使用关系数据库时细化至原生 SQL 查询。这在无法使用 LINQ 来表达要执行的查询或因使用 LINQ 查询导致低效的 SQL 被发送到数据库时非常有用。原生 SQL 查询可返回实体类型或（从 EF Core 2.1 开始）可返回模型中的[查询类型](xref:core/modeling/query-types)。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Querying)。
@@ -28,20 +24,16 @@ ms.locfileid: "42997136"
 
 * SQL 查询必须返回实体或查询类型的所有属性的数据。
 
-<<<<<<< HEAD
-* 结果集中的列名必须与属性映射到的列名匹配。请注意，这与 EF6 不同，EF6 中忽略了原始 SQL 查询时的属性/列映射关系，只需结果集列名与属性名相匹配即可。
-=======
 * 结果集中的列名必须与属性映射到的列名匹配。 请注意，这与 EF6 不同，EF6 中忽略了原始 SQL 查询时的属性/列映射关系，只需结果集列名与属性名相匹配即可。
->>>>>>> aspnet/live
 
-* SQL 查询不能包含关联数据。 但是，在许多情况下你可以在查询后面紧跟着使用 `Include` 方法以返回关联数据（请参阅[包含关联数据](#including-related-data)）。
+* SQL 查询不能包含关联数据。但在许多情况下，可在查询后紧接着使用 `Include` 方法来返回关联数据（请参阅[包含关联数据](#including-related-data)）。
 
-* 传递到此方法的 `SELECT` 语句通常应该可以进行编写：如果 EF Core 需要计算服务器上的其他查询运算符（例如，转换 `FromSql` 后应用的 LINQ 运算符），则提供的 SQL 将被视为子查询。 这意味着传递的 SQL 不应包含子查询上无效的任何字符或选项，如：
+* 传递到此方法的 `SELECT` 语句通常应可进行编辑：如果 EF Core 需要在服务器端计算更多查询运算符（例如，转换 `FromSql` 后跟的 LINQ 运算符），则提供的 SQL 将被视为子查询。这意味着传递的 SQL 不应包含子查询上无效的任何字符或选项，如：
   * 尾随分号
-  * 在 SQL Server 上，尾随的查询级提示（例如，`OPTION (HASH JOIN)`）
+  * 在 SQL Server 上，结尾处的查询级提示（例如，`OPTION (HASH JOIN)`）
   * 在 SQL Server 上， `SELECT` 子句中不带 `TOP 100 PERCENT` 的 `ORDER BY` 子句
 
-* 除 `SELECT` 以外的其他 SQL 语句自动识别为不可组合。 因此，存储过程的完整结果将始终返回到客户端，且在内存中计算 `FromSql` 后应用的任何 LINQ 运算符。
+* 除 `SELECT` 以外的其他 SQL 语句自动识别为不可编写。 因此，存储过程的完整结果将始终返回到客户端，且在内存中计算 `FromSql` 后应用的任何 LINQ 运算符。
 
 ## <a name="basic-raw-sql-queries"></a>基本原生 SQL 查询
 
@@ -102,9 +94,9 @@ var blogs = context.Blogs
 
 ## <a name="composing-with-linq"></a>使用 LINQ 编写
 
-如果发送到数据库中的 SQL 查询是可组合的，则可以在原始 SQL 查询后面紧跟着使用 LINQ 运算符。 以 `SELECT` 关键字开始的 SQL 查询一般是可组合的。
+如果可以在数据库中编写 SQL 查询，则可以使用 LINQ 运算符在原生 SQL 查询的基础上进行编写。可以使用 `SELECT` 关键字对其进行编写的 SQL 查询。
 
-下面的示例使用原始 SQL 从一个表值函数 (Table-Valued Function，TVF) 中进行查询，然后结合使用 LINQ 在其上进行筛选和排序。
+下面的示例使用可从表值函数 (TVF) 中执行选择的原生 SQL 查询，然后使用 LINQ 对其进行编写以执行筛选和排序。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/RawSQL/Sample.cs)] -->
 ``` csharp
@@ -117,9 +109,9 @@ var blogs = context.Blogs
     .ToList();
 ```
 
-### <a name="including-related-data"></a>包含关联数据
+### <a name="including-related-data"></a>包括相关数据
 
-结合 LINQ 运算符可将关联数据包含在查询中。
+使用 LINQ 运算符编写可用于将相关数据包含在查询中。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/RawSQL/Sample.cs)] -->
 ``` csharp
@@ -132,4 +124,4 @@ var blogs = context.Blogs
 ```
 
 > [!WARNING]  
-> **始终为原始 SQL 查询使用参数化：** 接受原始 SQL 字符串的 API （如 `FromSql` 和 `ExecuteSqlCommand`）有比较方便的参数化传值机制。 除了验证用户输入，还应始终为原始 SQL 查询或命令中使用的任何值启用参数化传值机制。 如果使用字符串拼接来动态生成查询字符串中的任何部分，则你应负责验证所有输入以抵御 SQL 注入攻击。
+> **应始终为原生 SQL 查询应用参数化传值机制：** 使用接受原生 SQL 字符串（如 `FromSql` 和 `ExecuteSqlCommand`）的 API，可轻松将值传递为参数。不仅在验证用户输入时，对于原生 SQL 查询或命令中使用的任何值，都应启用参数化传值机制。如果使用字符串拼接来动态生成查询字符串中的任何部分，则应负责验证所有输入，以抵御 SQL 注入攻击。
