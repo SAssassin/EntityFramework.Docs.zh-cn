@@ -93,7 +93,7 @@
 ### [查询数据](core/querying/index.md)
 #### [基本查询](core/querying/basic.md)
 #### [加载关联数据](core/querying/related-data.md)
-#### [客户端评估与服务器评估](core/querying/client-eval.md)
+#### [客户端求值与服务器求值](core/querying/client-eval.md)
 #### [跟踪与非跟踪](core/querying/tracking.md)
 #### [原生 SQL 查询](core/querying/raw-sql.md)
 #### [异步查询](core/querying/async.md)
@@ -108,7 +108,7 @@
 #### [并发冲突](core/saving/concurrency.md)
 #### [事务](core/saving/transactions.md)
 #### [异步保存](core/saving/async.md)
-#### [处于连接断开状态的实体](core/saving/disconnected-entities.md)
+#### [断开连接的实体](core/saving/disconnected-entities.md)
 #### [生成的属性的显式值](core/saving/explicit-values-generated-properties.md)
 
 ### [支持的 .NET 实现](core/platforms/index.md)
