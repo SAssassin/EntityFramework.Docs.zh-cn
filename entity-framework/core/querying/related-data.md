@@ -1,5 +1,5 @@
 ---
-title: 加载相关数据 - EF Core
+title: 加载关联数据 - EF Core
 author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: f9fb64e2-6699-4d70-a773-592918c04c19
@@ -11,7 +11,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "42994783"
 ---
-# <a name="loading-related-data"></a>加载相关数据
+# <a name="loading-related-data"></a>加载关联数据
 
 Entity Framework Core 允许在模型中使用导航属性来加载关联实体。 有三种常见的 O/RM 模式可用于加载关联数据。
 * **预先加载**表示从数据库中加载关联数据，作为初始查询的一部分。
@@ -101,7 +101,7 @@ public class School
   context.People.Include(person => ((Student)person).School).ToList()
   ```
 
-- 使用 `as` 运算符
+- 使用 `as` 操作符
   ```csharp
   context.People.Include(person => (person as Student).School).ToList()
   ```
@@ -115,11 +115,11 @@ public class School
 
 如果更改查询，使其不再返回查询最开始的实体类型的实例，则会忽略 include 方法。
 
-以下示例中，include 运算符基于 `Blog`，但 `Select` 运算符将查询改变为返回匿名类型。 在这种情况下，include 运算符不起作用。
+以下示例中，include 操作基于 `Blog`，但 `Select` 操作将查询改变为返回匿名类型。 在这种情况下，include 操作不起作用。
 
 [!code-csharp[Main](../../../samples/core/Querying/Querying/RelatedData/Sample.cs#IgnoredInclude)]
 
-默认情况下，当忽略 include 运算符时，EF Core 将记录警告。 有关查看日志记录输出的详细信息，请参阅[日志记录](../miscellaneous/logging.md)。 可更改 include 运算符被忽略时的行为，比如引发异常或不执行任何操作。 将在设置上下文选项时完成此操作（如果使用的是 ASP.NET Core，则通常在 `DbContext.OnConfiguring` 或 `Startup.cs` 中设置）。
+默认情况下，当忽略 include 操作时，EF Core 将记录警告。 有关查看日志记录输出的详细信息，请参阅[日志记录](../miscellaneous/logging.md)。 可更改 include 操作被忽略时的行为，比如引发异常或不执行任何操作。 将在设置上下文选项时完成此操作（如果使用的是 ASP.NET Core，则通常在 `DbContext.OnConfiguring` 或 `Startup.cs` 中设置）。
 
 [!code-csharp[Main](../../../samples/core/Querying/Querying/RelatedData/ThrowOnIgnoredInclude/BloggingContext.cs#OnConfiguring)]
 
@@ -238,7 +238,7 @@ public class Post
     }
 }
 ```
-这不要求实体类型为可继承的类型，也不要求导航属性必须是虚拟的，且允许通过 `new` 创建的实体实例在附加到上下文后可进行延迟加载。 但它需要对 [Microsoft.EntityFrameworkCore.Abstractions](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Abstractions/) 包中定义的 `ILazyLoader` 服务的引用。 此包包含所允许的最少的一组类型，以便将依赖此包时所产生的影响降至最低。 不过，可以将 `ILazyLoader.Load` 方法以委托的形式注入，这样就可以完全避免依赖于实体类型的任何 EF Core 包。 例如：
+这不要求实体类型为可继承的类型，也不要求导航属性必须是 `virtual` ，且允许通过 `new` 创建的实体实例在附加到上下文后可进行延迟加载。 但它需要对 [Microsoft.EntityFrameworkCore.Abstractions](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Abstractions/) 包中定义的 `ILazyLoader` 服务的引用。 此包包含所允许的最少的一组类型，以便将依赖此包时所产生的影响降至最低。 不过，可以将 `ILazyLoader.Load` 方法以委托的形式注入，这样就可以完全避免依赖于实体类型的任何 EF Core 包。 例如：
 ```csharp
 public class Blog
 {
@@ -309,7 +309,7 @@ public static class PocoLoadingExtensions
 }
 ```
 > [!NOTE]  
-> 延迟加载委托的构造函数参数必须名为“lazyLoader”。 未来的一个版本中的配置将计划采用另一个名称。
+> 延迟加载委托的构造函数参数必须名为“lazyLoader”。 在以后的版本中将允许通过配置指定该参数名称。
 
 ## <a name="related-data-and-serialization"></a>关联数据和序列化
 

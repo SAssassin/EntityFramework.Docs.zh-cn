@@ -5,12 +5,12 @@ author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: a6b9cd22-6803-4c6c-a4d4-21147c0a81cb
 uid: efcore-and-ef6/index
-ms.openlocfilehash: 0f9f0d4708fa283855eddf2cfc231b37356e413e
-ms.sourcegitcommit: 5e11125c9b838ce356d673ef5504aec477321724
+ms.openlocfilehash: d5fe9b388707f653fdeb2d6a5daa7215ced71c1d
+ms.sourcegitcommit: b3c2b34d5f006ee3b41d6668f16fe7dcad1b4317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50022345"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51688714"
 ---
 # <a name="compare-ef-core--ef6"></a>比较 EF Core 和 EF6
 
@@ -57,7 +57,7 @@ EF Core 列指出了功能首次出现的产品版本。
 | 密钥生成：数据库                              | 是      | 1.0                                   |
 | 密钥生成：客户端                                |          | 1.0                                   |
 | 复杂/已拥有类型                                   | 是      | 2.0                                   |
-| 空间数据                                          | 是      |                                       |
+| 空间数据                                          | 是      | 2.2                                   |
 | 模型的图形可视化效果                      | 是      |                                       |
 | 图形模型编辑器                                | 是      |                                       |
 | 模型格式：代码                                    | 是      | 1.0                                   |

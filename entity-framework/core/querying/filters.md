@@ -41,7 +41,7 @@ ms.locfileid: "42996660"
 
 ## <a name="disabling-filters"></a>禁用筛选器
 
-可使用 ```IgnoreQueryFilters()``` 运算符对各个 LINQ 查询禁用筛选器。
+可使用 ```IgnoreQueryFilters()``` 方法对各个 LINQ 查询禁用筛选器。
 
 [!code-csharp[Main](../../../efcore-repo/samples/QueryFilters/Program.cs#IgnoreFilters)]
 
@@ -50,4 +50,4 @@ ms.locfileid: "42996660"
 全局查询筛选器具有以下限制：
 
 * 筛选器不能包含对导航属性的引用。
-* 仅可为继承层次结构的根实体类型定义筛选器。
+* 仅可为继承层次结构中的根实体类型定义筛选器。
