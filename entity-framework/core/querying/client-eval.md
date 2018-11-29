@@ -51,7 +51,7 @@ public static string StandardizeUrl(string url)
 
 ## <a name="client-evaluation-performance-issues"></a>客户端求值性能问题
 
-虽然客户端求值非常有用，但在某些情况下可能会导致性能不佳。 请考虑以下查询，其中辅助方法在筛选器中使用。 由于无法在数据库中执行此操作，因此所有数据将被拉入内存中，然后会在客户端上应用筛选器。 根据数据量以及筛选出的数据量，这可能会导致性能低下。
+虽然客户端求值非常有用，但在某些情况下可能会导致性能不佳。 请考虑以下查询，该查询现在在筛选器中使用辅助方法。 由于无法在数据库中执行此操作，因此所有数据将被拉入内存中，然后会在客户端上应用筛选器。 根据数据量以及筛选出的数据量，这可能会导致性能低下。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/ClientEval/Sample.cs)] -->
 ``` csharp
@@ -66,7 +66,7 @@ var blogs = context.Blogs
 
 ## <a name="optional-behavior-throw-an-exception-for-client-evaluation"></a>可选行为：客户端求值引发异常
 
-我们可以将执行客户端求值时记录警告的默认行为改为引发异常或不执行任何操作。 这是在为上下文设置选项时完成的（通常在 `DbContext.OnConfiguring` 中完成，如果使用的是 ASP.NET Core，则在 `Startup.cs` 中完成）。
+我们可以将执行客户端求值时记录警告的默认行为改为引发异常或不执行任何操作。 这是在上下文设置选项时进行设置的（通常在 `DbContext.OnConfiguring` 中进行设置，如果使用的是 ASP.NET Core，则在 `Startup.cs` 中进行设置）。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/ClientEval/ThrowOnClientEval/BloggingContext.cs?highlight=5)] -->
 ``` csharp

@@ -1,5 +1,5 @@
 ---
-title: 键 （主键） 的 EF Core
+title: 键 （主键） - EF Core
 author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: 912ffef7-86a0-4cdc-a776-55f907459d20
