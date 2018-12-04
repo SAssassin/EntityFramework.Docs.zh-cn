@@ -1,5 +1,5 @@
 ---
-title: 包括和排除类型的 EF Core
+title: 包括和排除类型 - EF Core
 author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: cbe6935e-2679-4b77-8914-a8d772240cf1
@@ -25,7 +25,7 @@ ms.locfileid: "42996145"
 
 * `Post`，因为它是通过 `Blog.Posts` 导航属性发现的
 
-* `AuditEntry`，因为它是在 `OnModelCreating` 中提及的
+* `AuditEntry`，因为它在 `OnModelCreating` 中提及
 
 <!-- [!code-csharp[Main](samples/core/Modeling/Conventions/Samples/IncludedTypes.cs?highlight=3,7,16)] -->
 ``` csharp

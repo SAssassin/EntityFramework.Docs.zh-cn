@@ -4,12 +4,12 @@ author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: 3c88427c-20c6-42ec-a736-22d3eccd5071
 uid: core/get-started/index
-ms.openlocfilehash: 744ea587207775f3a5b9f7b14ba5959c55539c13
-ms.sourcegitcommit: 39080d38e1adea90db741257e60dc0e7ed08aa82
+ms.openlocfilehash: b846d63f2c285a43d60eecfb2be3d460a5d31924
+ms.sourcegitcommit: 064b09431f05848830e145a6cd65cad58881557c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980010"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52552589"
 ---
 # <a name="getting-started-with-entity-framework-core"></a>Entity Framework Core 入门
 
@@ -23,17 +23,17 @@ ms.locfileid: "50980010"
 
 Entity Framework Core 可基于现有数据库创建模型，也可基于模型创建数据库。 提供的教程演示了这两种方法。
 
-* .NET Framework（控制台应用、WinForms、WPF）
-  * [新建数据库](full-dotnet/new-db.md)
-  * [现有数据库](full-dotnet/existing-db.md)
-* .NET Core（Windows、macOS、Linux）
+* .NET Core 控制台应用
   * [新建数据库](netcore/new-db-sqlite.md)
-* ASP.NET Core
+* ASP.NET Core 应用
   * [新建数据库](aspnetcore/new-db.md)
   * [现有数据库](aspnetcore/existing-db.md)
   * [EF Core 和 Razor Pages](/aspnet/core/data/ef-rp/intro)
-* 通用 Windows 平台 (UWP)
+* 通用 Windows 平台 (UWP) 应用
   * [新建数据库](uwp/getting-started.md)
+* .NET Framework 应用
+  * [新建数据库](full-dotnet/new-db.md)
+  * [现有数据库](full-dotnet/existing-db.md)
 
 > [!NOTE]  
 > 这些教程和随附示例已更新为使用 EF Core 2.1。 但在大多情况下，应该可以使用以前的版本创建应用程序，只需对指令进行极少修改。 
