@@ -5,12 +5,12 @@ ms.author: ansvyryd
 ms.date: 11/02/2018
 ms.assetid: 3154BF3C-1749-4C60-8D51-AE86773AA116
 uid: core/modeling/data-seeding
-ms.openlocfilehash: 791f7afff36aac52fe2ffdc16ab580db22011b99
-ms.sourcegitcommit: 082946dcaa1ee5174e692dbfe53adeed40609c6a
+ms.openlocfilehash: 8f28dfea12461572ade8fbf3910ebd216dafb389
+ms.sourcegitcommit: fa863883f1193d2118c2f9cee90808baa5e3e73e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51028091"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52857424"
 ---
 # <a name="data-seeding"></a>数据种子设定
 
@@ -54,7 +54,7 @@ ms.locfileid: "51028091"
 > [!TIP]
 > 如果你需要将迁移应用自动部署的一部分可以[创建一个 SQL 脚本](xref:core/managing-schemas/migrations/index#generate-sql-scripts)，可以预览之前执行。
 
-或者，可以使用`context.Database.EnsureCreated()`若要创建新的数据库包含种子数据，例如对于测试数据库，或者在使用内存中提供程序或任何非关系数据库。 请注意，如果数据库已存在，`EnsureCreated()`既不会更新该架构，也不在数据库中的种子数据。 对于关系数据库不应调用`EnsureCreated()`如果你打算使用迁移。
+或者，可以使用`context.Database.EnsureCreated()`若要创建新的数据库包含种子数据，例如对于测试数据库，或者在使用内存中提供程序或任何非关系数据库。 请注意，如果数据库已存在，`EnsureCreated()`既不会更新数据库中的架构和种子数据。 对于关系数据库不应调用`EnsureCreated()`如果你打算使用迁移。
 
 此类型的种子数据由迁移，该脚本以更新已在数据库中的数据需要为其生成无需连接到数据库。 这具有一些限制：
 * 需要指定即使它通常由数据库生成的主键值。 它将用于检测之间迁移的数据更改。
