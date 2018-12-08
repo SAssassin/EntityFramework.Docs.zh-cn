@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 title: 键（主键） - EF Core
-=======
-title: EF Core 中的主键
->>>>>>> personball/live
 author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: 912ffef7-86a0-4cdc-a776-55f907459d20
