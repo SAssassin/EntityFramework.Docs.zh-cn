@@ -20,7 +20,7 @@ SQLite 具有内存中模式，借此可使用 SQLite 针对关系数据库编�
 
 ## <a name="example-testing-scenario"></a>示例测试方案
 
-请考虑以下服务，允许应用程序代码来执行某些与博客相关的操作。 在内部使用`DbContext`连接到 SQL Server 数据库。 可以用来交换此上下文，以便我们可以编写此服务的有效测试，而无需修改代码，或执行大量工作来创建测试连接到内存中 SQLite 数据库上下文的双精度。
+请考虑以下允许应用程序代码执行一些与博客相关的操作的服务。 该服务在内部使用连接到 SQL Server 数据库的 `DbContext`。 交换此上下文可有效连接到内存中 SQLite 数据库，这样我们就可以为该服务编写高效的测试，而无需修改代码或执行大量的工作来创建上下文的测试副本。
 
 [!code-csharp[Main](../../../../samples/core/Miscellaneous/Testing/BusinessLogic/BlogService.cs)]
 
@@ -28,7 +28,7 @@ SQLite 具有内存中模式，借此可使用 SQLite 针对关系数据库编�
 
 ### <a name="avoid-configuring-two-database-providers"></a>避免配置两个数据库提供程序
 
-在测试中要从外部配置要使用 InMemory 提供程序的上下文。 如果要配置数据库提供程序通过重写`OnConfiguring`在上下文中，则需要添加一些条件的代码，以确保，仅当其中一个已尚未配置配置的数据库提供程序。
+在测试中，从外部配置上下文以使用 InMemory 提供程序。 如果要通过在上下文中替代 `OnConfiguring` 来配置数据库提供程序，则需要添加一些条件代码，从而确保只有在尚未配置数据库提供程序的情况下才进行配置。
 
 > [!TIP]  
 > 如果使用的是 ASP.NET Core，则不需要此代码，因为数据库提供程序是在上下文之外（在 Startup.cs 中）配置的。
